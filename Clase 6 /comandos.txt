@@ -1,0 +1,24 @@
+sql json ----------------------------------------------------------------------------------------------------
+
+27017
+
+use zoologico // crear base de datos
+
+to db zoologico 
+
+show dbs // verificar que la base de datos existe
+
+db.zoologico.insert({ // crear un documento
+                      // Un documento tiene la siguiente estructura:
+                      // {dato, dato, dato, dato,…}
+//datos :)
+              
+})
+
+
+db.usuarios.find() // para ver el contenido de la coleccion
+
+show collections // ver las colecciones
+
+
+
