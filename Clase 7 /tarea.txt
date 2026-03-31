@@ -1,0 +1,65 @@
+
+/*
+Entidades:
+farmacia
+medicamento
+Relación:
+tiene (con atributos)
+cantidad
+fecha
+Cardinalidad:
+farmacia → N medicamentos
+medicamento → N farmacias
+- Esto es una relación muchos a muchos (N:N)
+
+
+APUNTES
+_id = identificador único
+
+Objetos {} = datos relacionados (embebidos)
+
+Arrays [] = relaciones de muchos
+*/
+
+
+
+
+// diagrama alternativa N1 -----------------------------------------------------------------------------------------------------------------------------------------
+
+// medicamentos dentro de la farmacia
+{
+  "_id": "F1", // Es el identificador único del documento (PRIMARY KEY). Si no se pone, MongoDB lo crea automáticamente
+  "nombre": "Farmacia Central", // Campo simple
+  "ciudad": { // este es un documento embebido, que en vez de guardar la ciudad en otra colección, la guarda dentro de la farmacia
+    "codigociudad": "C1",
+    "nombre": "Valparaíso"
+  },
+  "medicamentos": [ // Esto es un array (lista), una farmacia tiene muchos medicamentos
+    {
+      "codigomedicamento": "M1",
+      "nombre": "Amoxicilina",
+      "categoria": { // Otro documento embebido
+        "codigocategoria": "CAT1",
+        "nombre": "Antibiótico"
+      },
+      "laboratorios": [ // es Array porque: Un medicamento puede tener varios laboratorios
+        {
+          "codigolaboratorio": "L1",
+          "nombre": "LabZ"
+        }
+      ],
+      "cantidad": 100, // Esto viene de la tabla intermedia. En SQL esto estaba separado y aquí lo guardo dentro del medicamento
+      "fecha": "2026-02-20"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
